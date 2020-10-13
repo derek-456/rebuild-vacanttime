@@ -44,7 +44,7 @@ export default {
             request({
                 url: "/movie_index.json"
             }).then( res =>{
-                console.log(res)
+                // console.log(res)
                 this.movieList = res;
             })
         },

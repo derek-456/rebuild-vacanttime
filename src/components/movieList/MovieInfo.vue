@@ -59,7 +59,7 @@ export default {
             request({
                 url: "/all/movie/" + this.id +".json"
             }).then(res=>{
-                console.log(res)
+                // console.log(res)
                 this.info = res[0];
                 this.preList = res[0].preList; 
             })
