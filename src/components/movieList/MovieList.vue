@@ -2,6 +2,7 @@
     <div>
         <!-- 滑动导航区域 -->
         <my-swipe></my-swipe>
+        <my-swipe2></my-swipe2>
 
 
         <ul class="mui-table-view">
@@ -23,6 +24,9 @@
 
 <script>
 import swipe from '../subcomponents/swipe.vue'
+import myswipe from '../subcomponents/myswipe.vue'
+import { request } from "../../network/request.js";
+
 export default {
     data(){
         return {
@@ -34,13 +38,20 @@ export default {
     },
     methods: {
         getMovieList() {
-            this.$http.get("movie_index.json").then((result) => {
-                this.movieList = result.body;
-            });
+            // this.$http.get("movie_index.json").then((result) => {
+            //     this.movieList = result.body;
+            // });
+            request({
+                url: "/movie_index.json"
+            }).then( res =>{
+                console.log(res)
+                this.movieList = res;
+            })
         },
     },
     components:{
         "my-swipe": swipe,
+        "my-swipe2": myswipe
     }
 }
 </script>

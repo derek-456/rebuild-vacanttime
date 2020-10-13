@@ -35,6 +35,8 @@
 
 <script>
 import comment from "../subcomponents/comment.vue";
+import {request} from '../../network/request.js'
+
 export default {
     data() {
         return {
@@ -50,9 +52,16 @@ export default {
     },
     methods: {
         getThumbs(){
-            this.$http.get('all/movie/'+ this.id +'.json').then(result=>{
-                this.info = result.body[0];
-                this.preList = result.body[0].preList;
+            // this.$http.get('all/movie/'+ this.id +'.json').then(result=>{
+            //     this.info = result.body[0];
+            //     this.preList = result.body[0].preList;
+            // })
+            request({
+                url: "/all/movie/" + this.id +".json"
+            }).then(res=>{
+                console.log(res)
+                this.info = res[0];
+                this.preList = res[0].preList; 
             })
         },
         handleClose () {

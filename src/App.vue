@@ -49,6 +49,8 @@
     opacity: 0;
     transform: translateX(-100%);
     position: absolute;
+    right: 0;
+    left: 0;
   }
 
   .v-enter-active,.v-leave-active{

@@ -38,6 +38,9 @@
 </template>
 
 <script>
+//导入数据请求模块
+import {request} from '../../network/request.js'
+
 export default {
     data() {
         return {
@@ -49,9 +52,16 @@ export default {
     },
     methods: {
         getBannerList() {
-            this.$http.get("banner_index.json").then((result) => {
-                this.bannerList = result.body;
-            });
+            // this.$http.get("banner_index.json").then((result) => {
+            //     this.bannerList = result.body;
+            // });
+
+            request({
+                url : "/banner_index.json"
+            }).then(res => {
+                this.bannerList = res
+                // console.log(res)
+            })
         },
     },
 };

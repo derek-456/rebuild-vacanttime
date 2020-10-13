@@ -24,6 +24,7 @@
 
 <script>
 import {Toast} from 'mint-ui'
+import {request} from '../../network/request.js'
 export default {
     data(){
         return {
@@ -37,9 +38,14 @@ export default {
     },
     methods: {
         getComments(){
-            this.$http.get("comments/movie/" + this.id +"/pageindex=" 
-            + this.pageIndex +".json").then(result=>{
-                this.commentList = this.commentList.concat( result.body );
+            // this.$http.get("comments/movie/" + this.id +"/pageindex=" 
+            // + this.pageIndex +".json").then(result=>{
+            //     this.commentList = this.commentList.concat( result.body );
+            // })
+            request({
+                url: "/comments/movie/" + this.id + "/pageindex=" + this.pageIndex + ".json"
+            }).then(res =>{
+                this.commentList = this.commentList.concat(res)
             })
         },
         getMore(){

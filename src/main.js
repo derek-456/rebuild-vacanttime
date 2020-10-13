@@ -9,9 +9,13 @@ import "./lib/mui/css/mui.min.css"
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import VueResource from 'vue-resource'
+// import VueResource from 'vue-resource'
+import axios from "axios";
+import VueAxios from "vue-axios";
+
 // 导入 vue-preview
 import VuePreview from "vue-preview";
+
 
 
 
@@ -21,13 +25,16 @@ Vue.filter('dataFormat', function(dataStr, pattern = "YYYY-MM-DD HH:mm:ss"){
   return moment().format(pattern)
 })
 
+
+
 Vue.config.productionTip = false
 Vue.use(MintUI);
-Vue.use(VueResource)
+// Vue.use(VueResource)
 // defalut install
 Vue.use(VuePreview);
+Vue.use(VueAxios, axios);
 
-Vue.http.options.root = './data'
+// Vue.http.options.root = './data'
 
 new Vue({
   router,

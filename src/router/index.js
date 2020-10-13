@@ -33,8 +33,8 @@ const routes = [
 		component: MovieList,
 	},
 	{
-    path: "/home/movie/movieList/movieInfo/:id",
-    component: MovieInfo
+    	path: "/home/movie/movieList/movieInfo/:id",
+    	component: MovieInfo
 	},
 ];
 
