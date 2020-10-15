@@ -1,8 +1,11 @@
 <template>
     <div>
         <!-- 滑动导航区域 -->
-        <my-swipe></my-swipe>
-        <my-swipe2></my-swipe2>
+        <div>
+            <my-swipe></my-swipe>
+            <my-swipe2></my-swipe2>
+        </div>
+        
 
 
         <ul class="mui-table-view">

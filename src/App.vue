@@ -2,7 +2,7 @@
   <div id="app">
     <!-- 头部 Header -->
     <mt-header fixed title="Vacant Time">
-      <mt-button icon="back" slot="left" @click="goback" v-show="$route.path != '/'&$route.path != '/home'">返回</mt-button>
+      <mt-button icon="back" slot="left" @click="goback" v-show="!flag.includes($route.path)">返回</mt-button>
     </mt-header>
 
     <!-- 路由切换组件展示区 view-router -->
@@ -31,6 +31,11 @@
 
 <script>
 export default {
+  data(){
+    return{
+      flag:['/', '/home','/collect','/user']
+    }
+  },
   methods:{
     goback(){
       this.$router.go(-1)
@@ -64,7 +69,12 @@ export default {
   }
 
   .v-enter-active,.v-leave-active{
-    transition: all 0.4s ease;
+    transition: all 0.2s ease;
+    // display: none;
+  }
+
+  .v-leave-active{
+    display: none;
   }
 
 </style>
