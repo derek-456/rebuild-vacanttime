@@ -11,7 +11,7 @@
                 <h2>{{info.name}}({{info.time}})</h2>
                 <h4>{{info.EnName}}</h4>
                 <div class="type">{{info.type}}</div>
-                <mt-button type="primary" @click="addToCollect">想看</mt-button>
+                <mt-button :class="{btn1:btnChange}" type="primary" @click="addToCollect">想看</mt-button>
                 <mt-button type="primary">在看</mt-button>
                 <mt-button type="primary">看过</mt-button>
             </div>
@@ -45,6 +45,7 @@ export default {
             info: {},
             preList: [],
             ballFlag: false,
+            btnChange:false
         };
     },
     created(){
@@ -68,7 +69,15 @@ export default {
             console.log('close event')
         },
         addToCollect(){
-            this.ballFlag = !this.ballFlag;
+            if(this.$store.state.token){
+                if(!this.btnChange){
+                    this.ballFlag = !this.ballFlag;
+                }
+                this.btnChange = !this.btnChange;
+            }else{
+                this.$router.push({path:'/login',query:{redirect:this.$route.path}})
+                // console.log(this.$route)
+            }
         },
         beforeEnter(el){
 			el.style.transform = 'translate(0,0)';
@@ -144,6 +153,9 @@ export default {
                 margin: 0 5px;
                 background-color: #fff;
                 color: black;
+            }
+            .mint-button.btn1{
+                background-color: red;
             }
         }
     }

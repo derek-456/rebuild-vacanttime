@@ -2,6 +2,7 @@
 	{
 		"id": 123,
         "status": "success",
-        "token":100
+		"token":100,
+		"userImg": "../../img/teleplayico.jpg"
 	}
 

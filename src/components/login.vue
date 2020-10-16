@@ -63,22 +63,37 @@ export default {
               url:'/'+this.ruleForm.id+'/login/login.json',
               data:{id:123,pass:123}
             }).then(res=>{
+              //登入成功
               if(res.status === "success"){
                 this.$message({
                   type:'success',
                   message:"登入成功",
                   duration:1000,
-                  offset: 150,
+                  offset: 170,
                   center:true
                 })
                 let token = res.token;
-                let userId = res.id;
+                let userId = res.id,
+                userInfo = res;
                 //存储在localstorage 和 store中,记得传参
                 this.$store.dispatch('UserLogin',token);
                 this.$store.dispatch('UserId',userId);
+                this.$store.dispatch("UserInfo",userInfo)
                 // console.log(this.$route.query)
                 setTimeout(()=>{
                   this.$router.push(this.$route.query.redirect)
+                },1000)
+              }else{
+                //登入失败
+                this.$message({
+                  type:'warning',
+                  message:"登入失败",
+                  duration:2000,
+                  offset: 170,
+                  center:true
+                })
+                setTimeout(()=>{
+                  this.$router.go(0)
                 },1000)
               }
             })
