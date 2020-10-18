@@ -54,6 +54,10 @@ const routes = [
 		path: "/home/movie/movieList/movieInfo/:id",
 		component: MovieInfo,
 	},
+	{
+		path: "/collect/movie/movieList/movieInfo/:id",
+		component: MovieInfo,
+	},
 ];
 
 const router = new VueRouter({

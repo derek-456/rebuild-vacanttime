@@ -2,7 +2,7 @@
     <div>
         <ul class="mui-table-view">
             <li class="mui-table-view-cell mui-media" v-for="item in movieList" :key="item.id">
-                <router-link :to="'/home/movie/movieList/movieInfo/' + item.id">
+                <router-link :to="'/collect/movie/movieList/movieInfo/' + item.id">
                     <img class="mui-media-object mui-pull-left" v-lazy="item.post_url" />
                     <div class="mui-media-body">
                         <h1>{{item.name}}</h1>

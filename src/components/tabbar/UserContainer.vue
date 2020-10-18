@@ -11,6 +11,9 @@
                 <a class="mui-navigate-right">联系客服</a>
             </li>
             <li class="mui-table-view-cell">
+                <a class="mui-navigate-right">评价</a>
+            </li>
+            <li class="mui-table-view-cell">
                <a class="mui-navigate-right">设置</a>
             </li>
         </ul>
